@@ -21,13 +21,17 @@ def randomly_gen_uspace_url() -> list:
 # 登录帐户
 def login(username: str, password: str) -> req_Session:
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36",
+        "origin": "https://www.hostloc.com",
+        "referer": "https://www.hostloc.com/home.php?mod=space&do=notice&view=mypost"
     }
     login_url = "https://www.hostloc.com/member.php?mod=logging&action=login&loginsubmit=yes&infloat=yes&lssubmit=yes&inajax=1"
     login_data = {
         "fastloginfield": "username",
         "username": username,
         "password": password,
+        "quickforward": "yes",
+        "handlekey": "ls"
     }
     s = req_Session()
     s.post(url=login_url, data=login_data, headers=headers)
