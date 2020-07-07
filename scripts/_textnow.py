@@ -19,6 +19,6 @@ for idx in range(0,len(usernames)):
   password=passwords[idx]
   text = textnow_sms.Textnow(username, password, numbers, msg)
   text.send_text()
-  print("---第%s个账号处理完毕---" % idx)
+  print("---第%s个账号处理完毕---" % (idx+1))
 
 print("---Good Job! 所有账号处理完毕---")
