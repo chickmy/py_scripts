@@ -1,4 +1,4 @@
-本项目自 [xirikm/hostloc-auto-get-points](https://github.com/Arronlong/hostloc-auto-get-points) 修改而来
+本项目自 [xirikm/hostloc-auto-get-points](https://github.com/xirikm/hostloc-auto-get-points) 修改而来
 
 ---
 
