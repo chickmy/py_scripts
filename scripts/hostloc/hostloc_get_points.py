@@ -48,8 +48,23 @@ def check_login_status(s: req_Session, number_c: int) -> bool:
         print("第", number_c, "个帐户登录失败！")
         return False
     else:
-        print("第", number_c, "个帐户登录成功！")
+        point = re.findall("<em>积分: </em>(\d+)", res.text)
+        print("第", number_c, "个帐户登录成功！当前积分：%s" % point)
         return True
+
+
+# 抓取用户设置页面的积分
+def check_point(s: req_Session, number_c: int) -> int:
+    test_url = "https://www.hostloc.com/home.php?mod=spacecp"
+    res = s.get(test_url)
+    res.encoding = "utf-8"
+    test_title = re.findall("<title>.*?</title>", res.text)
+    if test_title[0] != "<title>个人资料 -  全球主机交流论坛 -  Powered by Discuz!</title>":
+        print("第", number_c, "个帐户查看积分失败，可能已退出")
+        return -1
+    else:
+        point = re.findall("<em>积分: </em>(\d+)", res.text)
+        return point
 
 
 # 依次访问随机生成的用户空间链接获取积分
@@ -89,6 +104,8 @@ if __name__ == "__main__":
             try:
                 s = login(user_list[i], passwd_list[i])
                 get_points(s, i + 1)
+                p = check_point(s, i + 1)
+                print("现在积分：%s" % p)
                 print("*" * 30)
             except Exception as e:
                 print("获取积分异常：" + str(e))
