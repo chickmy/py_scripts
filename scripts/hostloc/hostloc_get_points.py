@@ -5,7 +5,7 @@ from requests import Session as req_Session
 import time
 import random
 import re
-
+import hashlib
 
 # 随机生成用户空间链接
 def randomly_gen_uspace_url() -> list:
@@ -32,7 +32,7 @@ def login(username, password):
         "handlekey": "ls"
     }
     s = req_Session()
-    s.cookies.set("L7DFW", "5ff3ca966ed533da50ce3cd5af4373e4")
+    s.cookies.set("L7DFW", hashlib.md5((username+str(time.time())).encode(encoding='UTF-8')).hexdigest())
     s.post(url=login_url, data=login_data, headers=headers)
     return s
 
