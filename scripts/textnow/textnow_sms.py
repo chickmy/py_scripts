@@ -22,7 +22,7 @@ class Textnow:
 
   def send_text(self):
 
-    #profile = webdriver.FirefoxProfile()
+    ##profile = webdriver.FirefoxProfile()
     #proxy = '127.0.0.1:10808'
     #ip, port = proxy.split(":")
     #port = int(port)
