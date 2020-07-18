@@ -22,7 +22,7 @@ class Textnow:
 
   def send_text(self):
 
-    ##profile = webdriver.FirefoxProfile()
+    #profile = webdriver.FirefoxProfile()
     #proxy = '127.0.0.1:10808'
     #ip, port = proxy.split(":")
     #port = int(port)
@@ -86,18 +86,18 @@ class Textnow:
     driver.implicitly_wait(30)
 
     
-    #toast = driver.find_element_by_css_selector("#recent-header .toast-container")
-    #if toast:
-    #  driver.execute_script("arguments[0].remove();", toast)
-    #  time.sleep(1)
-    #notification = driver.find_element_by_css_selector(".notification-priming-modal")
-   # if notification:
-    #  driver.execute_script("arguments[0].remove();", notification)
-    #  time.sleep(1)
-    #driver.execute_script("$('#recent-header .toast-container').remove();")
-   # driver.execute_script("$('.notification-priming-modal').remove();")
-    #driver.execute_script("$('.modal').remove();")
-    #time.sleep(2)
+    # toast = driver.find_element_by_css_selector("#recent-header .toast-container")
+    # if toast:
+      # driver.execute_script("arguments[0].remove();", toast)
+      # time.sleep(1)
+    # notification = driver.find_element_by_css_selector(".notification-priming-modal")
+    # if notification:
+      # driver.execute_script("arguments[0].remove();", notification)
+      # time.sleep(1)
+    # driver.execute_script("$('#recent-header .toast-container').remove();")
+    # driver.execute_script("$('.notification-priming-modal').remove();")
+    # driver.execute_script("$('.modal').remove();")
+    # time.sleep(2)
     
     for phone in self.PHONE_NUMBER.split(','):
       try:
